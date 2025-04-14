@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://tnvex3vkttb3"]
+
+[ext_resource type="Script" uid="uid://c3yrifpc3nhr7" path="res://scripts/ui/menu.gd" id="1_7w7rl"]
+[ext_resource type="Texture2D" uid="uid://c1qi2tmvvcfeb" path="res://sprites/ui/arrow_basic.png" id="2_wedc3"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 491.0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_7w7rl")
+metadata/_custom_type_script = "uid://c3yrifpc3nhr7"
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 2
+text = "First Item"
+
+[node name="Label2" type="Label" parent="Menu"]
+layout_mode = 2
+text = "Second Item"
+
+[node name="Label3" type="Label" parent="Menu"]
+layout_mode = 2
+text = "Third Item"
+
+[node name="Label4" type="Label" parent="Menu"]
+layout_mode = 2
+text = "Fourth Item"
+
+[node name="Label5" type="Label" parent="Menu"]
+layout_mode = 2
+text = "Fifth Item"
+
+[node name="ArrowBasic" type="Sprite2D" parent="."]
+position = Vector2(14, 611)
+scale = Vector2(0.6875, 0.562501)
+texture = ExtResource("2_wedc3")
