@@ -1,6 +1,6 @@
 class_name Menu extends VBoxContainer
 
-signal actioned[item: Control]
+signal actioned(item: Control)
 
 @export var pointer: Node
 
@@ -8,16 +8,6 @@ signal actioned[item: Control]
 func _ready():
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	configure_focus()
-
-func get_items() -> Array[Control]:
-	var items: Array[Control] = []
-	for child in get_children():
-		if not child is Control: continue
-		if "Heading" in child.name: continue
-		if "Divider" in child.name: continue
-		items.append(child)
-		
-		return items
 		
 func _unhandled_input(event):
 	if not visible: return
@@ -29,6 +19,16 @@ func _unhandled_input(event):
 		actioned.emit(item)
 		
 		
+func get_items() -> Array[Control]:
+	var items: Array[Control] = []
+	for child in get_children():
+		if not child is Control: continue
+		if "Heading" in child.name: continue
+		if "Divider" in child.name: continue
+		items.append(child)
+		
+	return items
+	
 func configure_focus() -> void:
 	var items = get_items()
 	for i in items.size():
@@ -71,6 +71,6 @@ func update_selection() -> void:
 
 func _on_focus_changed(item: Control) -> void:
 	if not item: return
-	if not item in get_children: return
+	if not item in get_children(): return
 	
 	update_selection()
